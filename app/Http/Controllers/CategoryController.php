@@ -19,17 +19,16 @@ class CategoryController extends Controller
     public function index(){
 
         $data = $this->categoryRepository->index();
-        // $data = Category::all();
+
         return view("categories.index",compact('data'));
 
     }
 
 
     public function show($id){
-        // dd('heelo');
-        // $category = Category::find($id);
+
         $category = $this->categoryRepository->find($id);
-        // dd($category);
+
         return view('categories.show', compact('category'));
     }
 
