@@ -28,6 +28,7 @@ class UserRequest extends FormRequest
         'address' => 'nullable|string|max:500',
         'gender' => 'required|in:male,female,other',
         'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:15',
+        'role'=>'required|exists:roles,name',
         ];
     }
 }

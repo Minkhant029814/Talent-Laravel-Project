@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -12,7 +13,7 @@ class UserController extends Controller
     protected $userRepository ;
     public function __construct(UserRepositoryInterface $userRepository)
     {
-
+        $this->middleware('auth');
         $this->userRepository = $userRepository;
 
     }
@@ -29,8 +30,9 @@ class UserController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('users.create');
+    {   $roles = Role::all();
+
+        return view('users.create',compact('roles'));
     }
 
     /**
@@ -40,6 +42,7 @@ class UserController extends Controller
     {
         $datas =    $this->userRepository->store($request);
         return redirect()->route('users.index');
+
     }
 
     /**
@@ -56,7 +59,8 @@ class UserController extends Controller
     public function edit( $id)
     {
          $user = $this->userRepository->find($id);
-         return view('users.edit',compact('user'));
+         $roles = Role::all();
+         return view('users.edit',compact('user','roles'));
     }
 
     /**
@@ -73,7 +77,9 @@ class UserController extends Controller
             'gender'=>$request->gender,
 
 
+
         ]);
+        $users->syncRoles($request->role);
 
         return redirect()->route('users.index');
 

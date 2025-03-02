@@ -1,4 +1,4 @@
-@extends('categories.main')
+@extends('layouts.master')
 
 @section('content')
     <div class="container">
@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         {{-- //{{dd($user)}} --}}
-                        <form action="{{route('users.update',$user['id'])}}" method="POST">
+                        <form action="{{ route('users.update', $user['id']) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <!-- Name -->
@@ -56,6 +56,22 @@
                                     </option>
                                 </select>
                                 @error('gender')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!-- Role -->
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Role</label>
+                                <select id="role" name="role"
+                                    class="form-control @error('role') is-invalid @enderror">
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}"
+                                            {{ $user->roles->contains('name', $role->name) ? 'selected' : '' }}>
+                                            {{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('role')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>

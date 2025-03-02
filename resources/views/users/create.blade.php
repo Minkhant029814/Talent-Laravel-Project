@@ -1,4 +1,4 @@
-@extends('categories.main')
+@extends('layouts.master')
 
 @section('content')
 
@@ -78,6 +78,18 @@
                             <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
                                    name="phone" value="{{ old('phone') }}" required>
                             @error('phone')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <!-- Role Selection -->
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Select Role</label>
+                            <select name="role" class="form-control @error('role') is-invalid @enderror">
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>

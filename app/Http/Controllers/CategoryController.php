@@ -10,10 +10,11 @@ use PhpParser\Node\Expr\FuncCall;
 class CategoryController extends Controller
 {
 
+
     protected $categoryRepository;
 
     public function __construct(CategoryRepositoryInterface $categoryRepository)
-    {
+    { $this->middleware('auth');
         $this->categoryRepository = $categoryRepository;
     }
     public function index(){
@@ -56,7 +57,7 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request){
-        $category = $this->categoryRepository->find($request);
+        $category = $this->categoryRepository->find($request->id);
         $category ->update([
             'name'=>$request->name
         ]);

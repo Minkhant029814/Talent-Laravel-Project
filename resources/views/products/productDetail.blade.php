@@ -1,4 +1,4 @@
-@extends('categories.main')
+@extends('layouts.master')
 
 @section('content')
 <div class="col-6 container">
@@ -43,7 +43,12 @@
     <div class="d-flex   justify-content-between">
         <a href="{{route('product.Index')}}" class="btn btn-primary">back</a>
         <br><br>
+        @can('productEdit')
+
+
         <a href="{{route('products.edit',['id'=>$products->id])}}" class="btn btn-warning">Edit</a>
+        @endcan
+
 
             {{-- <button type="submit" class="btn btn-warning">Edit</button> --}}
 

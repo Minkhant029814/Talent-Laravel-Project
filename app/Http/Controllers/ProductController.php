@@ -17,7 +17,7 @@ class ProductController extends Controller
     protected $categoryRepository;
 
     public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository)
-    {
+    { $this->middleware('auth');
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
     }

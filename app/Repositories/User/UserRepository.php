@@ -29,6 +29,7 @@ class UserRepository implements UserRepositoryInterface{
 
 
         ]);
+        $users->assignRole($request->role);
         return $users;
     }
 
