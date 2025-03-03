@@ -34,6 +34,17 @@
                                 @enderror
                             </div>
 
+                            <!--status-->
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Select Status</label>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="active" {{ $user->status == 'active' ? 'selected' : '' }}>Active</option>
+                                    <option value="inactive" {{ $user->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+
+                                </select>
+                            </div>
+
+
                             <!-- Address -->
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>

@@ -21,10 +21,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'status',
         'password',
         'address',
         'gender',
         'phone',
+
 
     ];
 
@@ -50,4 +52,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
 }

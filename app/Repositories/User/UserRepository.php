@@ -21,6 +21,7 @@ class UserRepository implements UserRepositoryInterface{
         $users = User::create([
             'name'=>$request->name,
             'email'=>$request->email,
+            'status'=>$request->status,
             'phone'=>$request->phone,
             'address'=>$request->address,
             'gender'=>$request->gender,

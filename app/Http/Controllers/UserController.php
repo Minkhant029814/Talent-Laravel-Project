@@ -69,9 +69,11 @@ class UserController extends Controller
     public function update(Request $request,$id)
     {
         $users = $this->userRepository->find($id);
+
         $users ->update([
             'name'=>$request->name,
             'email'=>$request->email,
+            'status'=>$request->status,
             'phone'=>$request->phone,
             'address'=>$request->address,
             'gender'=>$request->gender,

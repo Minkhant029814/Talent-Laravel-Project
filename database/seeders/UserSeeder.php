@@ -23,15 +23,15 @@ class UserSeeder extends Seeder
             'gender'=>'male',
         ]);
 
-        $guest = User::create([
-            'name'=>'Alice',
-            'email'=>'Alice@mail.com',
-            'phone'=>'152455',
-            'password'=> Hash::make('password'),
-            'gender'=>'male',
-        ]);
+        // $guest = User::create([
+        //     'name'=>'Alice',
+        //     'email'=>'Alice@mail.com',
+        //     'phone'=>'152455',
+        //     'password'=> Hash::make('password'),
+        //     'gender'=>'male',
+        // ]);
 
         $admin->assignRole('admin');
-        $guest->assignRole('guest');
+        // $guest->assignRole('guest');
     }
 }

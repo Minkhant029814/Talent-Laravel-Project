@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+
+
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,8 +46,15 @@ Route::post('/prouducts/update/{id}',[ProductController::class,'update'])->name(
 
 Route::resource('/users',UserController::class);
 
+//For Role
+Route::resource('/roles',RoleController::class);
+
+//for Permissons
+Route::resource('/premissions',PermissionController::class);
 // Auth::routes();
 Auth::routes(['register'=>false]);
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

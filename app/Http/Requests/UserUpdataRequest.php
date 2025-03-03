@@ -24,7 +24,7 @@ class UserUpdataRequest extends FormRequest
         return [
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
-
+        'status'=>'required|in:active,inactive',
         'address' => 'nullable|string|max:500',
         'gender' => 'required|in:male,female,other',
         'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:15',

@@ -32,6 +32,17 @@
                             @enderror
                         </div>
 
+                        <!-- status -->
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+
+                            </select>
+                        </div>
+
+
                         <!-- Password -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
