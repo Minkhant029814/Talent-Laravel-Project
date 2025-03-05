@@ -42,11 +42,11 @@
             <input type="checkbox" name="status" role="switch" id="status_switch" class="form-check-input" value="0">
 
             @endif --}}
-            <div class="form-check form-switch">
+            {{-- <div class="form-check form-switch">
                 <input type="checkbox" name="status" role="switch" id="status_switch" class="form-check-input" value="1"
                 {{ $product->status ? 'checked' : '' }}>
                 <label class="form-check-label" for="status_switch">Active</label>
-            </div>
+            </div> --}}
 
 
 

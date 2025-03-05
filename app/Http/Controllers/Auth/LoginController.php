@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,15 @@ class LoginController extends Controller
     {
         if($user->status == 'inactive'){
             Auth::logout();
-            return redirect()->route('login')->withErrors(['statu'=>'Your account is inactive']);
+            return redirect()->route('login')->withErrors(['status'=>'Your account is blocked by the admin']);
+        }
+    }
+
+    protected function checkStatus(Request $request){
+        if(Auth::check()){
+            if(Auth::user()->role == 'admin'){
+
+            }
         }
     }
 

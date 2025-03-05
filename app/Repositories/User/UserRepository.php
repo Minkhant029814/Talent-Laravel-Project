@@ -10,22 +10,23 @@ use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Expr\FuncCall;
 
-class UserRepository implements UserRepositoryInterface{
-    public function index(){
-        $users = User::all();
-        return $users;
+class UserRepository implements UserRepositoryInterface
+{
+    public function index()
+    {
+        return User::all();
     }
 
     public function store(UserRequest $request)
     {
         $users = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'status'=>$request->status,
-            'phone'=>$request->phone,
-            'address'=>$request->address,
-            'gender'=>$request->gender,
-            'password'=>Hash::make($request->password),
+            'name' => $request->name,
+            'email' => $request->email,
+            'status' => $request->status,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'gender' => $request->gender,
+            'password' => Hash::make($request->password),
 
 
 
@@ -36,12 +37,6 @@ class UserRepository implements UserRepositoryInterface{
 
     public function find($id)
     {
-        $user = User::find($id);
-        return $user;
+        return User::find($id);
     }
-
-
 };
-
-
-

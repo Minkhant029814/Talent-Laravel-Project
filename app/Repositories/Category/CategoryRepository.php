@@ -7,14 +7,14 @@ class CategoryRepository implements CategoryRepositoryInterface
 {
     public function index()
     {
-        $categories = Category::all();
-        return $categories;
+        return Category::all();
+
     }
 
     public function find($id)
     {
-        $categories = Category::find($id);
-        return $categories;
+        return Category::find($id);
+
     }
 };
 

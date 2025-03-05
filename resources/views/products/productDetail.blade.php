@@ -12,7 +12,7 @@
                     <th scope="col">Category Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Uploaded Image</th>
+
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -23,17 +23,22 @@
                     <td>{{$products['category']['name']}} </td>
                     <td>{{$products['description']}}</td>
                     <td>{{$products['price']}}</td>
+
                     <td>
-                        <img src="{{asset('storage/'.$products['image'])}}" alt="Uploaded Images" class="img-fluid" style="width: 250px">
+                        <form action="{{route('product.status',['id'=>$products['id']])}}" method="POST">
+                            @csrf
+                            <button type="submit " class="btn btn-primary {{$products['status'] !== 0 ? "btn btn-success" :"btn btn-danger"}} ">{{$products['status'] !== 0 ? 'Active':'Inactive'
+                            }}</button>
+                        </form>
                     </td>
-                     @if ($products['status'] == true)
+                     {{-- @if ($products['status'] == true)
                          <td>Choose</td>
 
 
                      @endif
                      @if ($products['status'] == false)
                      <td>Unchoose</td>
-                     @endif
+                     @endif --}}
 
                   </tr>
             </tbody>

@@ -9,13 +9,13 @@ use Laravel\Ui\Presets\React;
 
 class RoleRepository implements RoleRepositoryInterface{
     public function index(){
-            $roles = Role::all();
-            return $roles;
+            return Role::all();
+
     }
     public function find($id)
     {
-            $role = Role::find($id);
-            return $role;
+            return Role::find($id);
+
     }
 
     public function store(Request $request){

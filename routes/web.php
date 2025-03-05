@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageContrller;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
@@ -59,3 +60,7 @@ Auth::routes(['register'=>false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::post('/products/{id}/status',[ProductController::class,'status'])->name('product.status');
+//for Images
+
+Route::resource('/images',ImageContrller::class);

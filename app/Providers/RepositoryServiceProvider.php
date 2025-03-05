@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Repositories\Image\ImageRepository;
+use App\Repositories\Image\ImageRepositoryInterface;
 use App\Repositories\Permissions\PermissionRepository;
 use App\Repositories\Permissions\PermissionRepositoryInterface;
 use App\Repositories\Product\ProductRepository;
@@ -34,6 +36,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(UserRepositoryInterface::class , UserRepository::class);
         $this->app->singleton(RoleRepositoryInterface::class , RoleRepository::class);
         $this->app->singleton(PermissionRepositoryInterface::class,PermissionRepository::class);
+        $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
+
 
     }
 }

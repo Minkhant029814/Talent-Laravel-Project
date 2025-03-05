@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
             'name'=>['required','regex:/^[a-zA-Z\s]+$/u', 'max:255'],
             'description'=>['required','regex:/^[a-zA-Z\s]+$/u'],
             'price'=>['required','numeric','min:0'],
-            'image'=>['required','image','mimes:jpeg,png,jpg,gif','max:2048'],
+            // 'image'=>['required','image','mimes:jpeg,png,jpg,gif','max:2048'],
 
 
         ];

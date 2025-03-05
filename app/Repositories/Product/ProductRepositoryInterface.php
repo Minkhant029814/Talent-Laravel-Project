@@ -9,4 +9,6 @@ interface ProductRepositoryInterface {
         public function index();
         public function find($id);
         public function create(ProductRequest  $data);
+
+        public function activeProducts();
 }
